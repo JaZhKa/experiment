@@ -1,0 +1,59 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.app-container {
+  text-align: center;
+  font-family: sans-serif;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.app-header {
+  background-color: #282c34;
+  color: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.app-main {
+  padding: 20px;
+  width: 50%;
+}
+
+.app-title {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.app-image {
+  height: 150px;
+  margin-bottom: 20px;
+}
+
+.app-text {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.app-button {
+  background-color: #61dafb;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.app-button:hover {
+  background-color: #4fa3d1;
+}
