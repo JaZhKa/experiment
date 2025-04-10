@@ -6,7 +6,7 @@ import { createClient, KameleoonProvider } from '@kameleoon/react-sdk';
 
 const configuration = {
   updateInterval: 60,
-  domain: 'https://jazhka.github.io/experiment/',
+  domain: 'jazhka.github.io/experiment/',
 };
 const client = createClient({ siteCode: 'hlgwdjnk2q', configuration });
 
