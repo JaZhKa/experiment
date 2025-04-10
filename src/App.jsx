@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import reactLogo from './assets/react.svg';
 import './App.css';
 import {
@@ -16,7 +16,7 @@ function App() {
   const { getVisitorCode } = useVisitorCode();
   const { getFeatureFlagVariationKey } = useFeatureFlag();
 
-  async function init() {
+  const init = useCallback(async () => {
     await initialize();
 
     const visitorCode = getVisitorCode();
@@ -29,11 +29,11 @@ function App() {
     );
 
     console.log(variationKey);
-  }
+  }, [initialize]);
 
   useEffect(() => {
     init();
-  }, []);
+  }, [init]);
 
   return (
     <>
