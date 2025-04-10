@@ -8,7 +8,7 @@ const configuration = {
   updateInterval: 60,
   domain: 'https://jazhka.github.io/experiment/',
 };
-const client = createClient({ siteCode: 'my_site_code', configuration });
+const client = createClient({ siteCode: 'hlgwdjnk2q', configuration });
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
