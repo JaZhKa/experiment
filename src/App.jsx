@@ -1,9 +1,39 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import reactLogo from './assets/react.svg';
 import './App.css';
+import {
+  useInitialize,
+  useData,
+  useVisitorCode,
+  useFeatureFlag,
+  CustomData,
+} from '@kameleoon/react-sdk';
 
 function App() {
   const [count, setCount] = useState(0);
+  const { initialize } = useInitialize();
+  const { addData } = useData();
+  const { getVisitorCode } = useVisitorCode();
+  const { getFeatureFlagVariationKey } = useFeatureFlag();
+
+  async function init() {
+    await initialize();
+
+    const visitorCode = getVisitorCode();
+
+    addData(visitorCode, new CustomData(0, 'my_value'));
+
+    const variationKey = getFeatureFlagVariationKey(
+      visitorCode,
+      'my_feature_key'
+    );
+
+    console.log(variationKey);
+  }
+
+  useEffect(() => {
+    init();
+  }, []);
 
   return (
     <>
