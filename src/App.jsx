@@ -4,31 +4,31 @@ import './App.css';
 import {
   useInitialize,
   // useData,
-  useVisitorCode,
-  useFeatureFlag,
-  CustomData,
+  // useVisitorCode,
+  // useFeatureFlag,
+  // CustomData,
 } from '@kameleoon/react-sdk';
 
 function App() {
   const [count, setCount] = useState(0);
   const { initialize } = useInitialize();
   // const { addData } = useData();
-  const { getVisitorCode } = useVisitorCode();
-  const { getFeatureFlagVariationKey } = useFeatureFlag();
+  // const { getVisitorCode } = useVisitorCode();
+  // const { getFeatureFlagVariationKey } = useFeatureFlag();
 
   const init = useCallback(async () => {
     await initialize();
 
-    const visitorCode = getVisitorCode();
+    // const visitorCode = getVisitorCode();
 
     // addData(visitorCode, new CustomData(0, 'my_value'));
 
-    const variationKey = getFeatureFlagVariationKey(
-      visitorCode,
-      'new_feature_flag'
-    );
+    // const variationKey = getFeatureFlagVariationKey(
+    //   visitorCode,
+    //   'my_feature_key'
+    // );
 
-    console.log(variationKey);
+    // console.log(variationKey);
   }, [initialize]);
 
   useEffect(() => {
