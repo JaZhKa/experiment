@@ -3,30 +3,30 @@ import reactLogo from './assets/react.svg';
 import './App.css';
 import {
   useInitialize,
-  // useData,
-  // useVisitorCode,
-  // useFeatureFlag,
-  // CustomData,
+  useData,
+  useVisitorCode,
+  useFeatureFlag,
+  CustomData,
 } from '@kameleoon/react-sdk';
 
 function App() {
   const [count, setCount] = useState(0);
   const { initialize } = useInitialize();
-  // const { addData } = useData();
-  // const { getVisitorCode } = useVisitorCode();
-  // const { getFeatureFlagVariationKey } = useFeatureFlag();
+  const { addData } = useData();
+  const { getVisitorCode } = useVisitorCode();
+  const { getFeatureFlagVariationKey } = useFeatureFlag();
 
   const init = useCallback(async () => {
     await initialize();
 
-    // const visitorCode = getVisitorCode();
+    const visitorCode = getVisitorCode();
 
-    // addData(visitorCode, new CustomData(0, 'my_value'));
+    addData(visitorCode, new CustomData(0, 'my_value'));
 
-    // const variationKey = getFeatureFlagVariationKey(
-    //   visitorCode,
-    //   'my_feature_key'
-    // );
+    const variationKey = getFeatureFlagVariationKey(
+      visitorCode,
+      'my_feature_key'
+    );
 
     // console.log(variationKey);
   }, [initialize]);
