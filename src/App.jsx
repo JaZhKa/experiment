@@ -5,7 +5,6 @@ import {
   useInitialize,
   useData,
   useVisitorCode,
-  useFeatureFlag,
   CustomData,
 } from '@kameleoon/react-sdk';
 
@@ -14,7 +13,6 @@ function App() {
   const { initialize } = useInitialize();
   const { addData } = useData();
   const { getVisitorCode } = useVisitorCode();
-  const { getFeatureFlagVariationKey } = useFeatureFlag();
 
   const init = useCallback(async () => {
     await initialize();
@@ -23,13 +21,8 @@ function App() {
 
     addData(visitorCode, new CustomData(0, 'my_value'));
 
-    const variationKey = getFeatureFlagVariationKey(
-      visitorCode,
-      'my_feature_key'
-    );
-
     // console.log(variationKey);
-  }, [initialize]);
+  }, [addData, getVisitorCode, initialize]);
 
   useEffect(() => {
     init();
