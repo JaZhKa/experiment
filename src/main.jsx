@@ -2,13 +2,19 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App.jsx';
-import { createClient, KameleoonProvider } from '@kameleoon/react-sdk';
+import {
+  Environment,
+  KameleoonClient,
+  KameleoonProvider,
+} from '@kameleoon/react-sdk';
 
 const configuration = {
   updateInterval: 60,
-  domain: 'jazhka.github.io/experiment/',
+  environment: Environment.Production,
+  cookieDomain: 'jazhka.github.io'
 };
-const client = createClient({ siteCode: 'wgkn3v9n27', configuration });
+
+const client = new KameleoonClient({ siteCode: 'wgkn3v9n27', configuration });
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
